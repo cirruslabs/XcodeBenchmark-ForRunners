@@ -1,0 +1,21 @@
+name: Benchmark
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  macos:
+    name: "Run"
+    strategy:
+      fail-fast: false
+      matrix:
+        macos: ["sonoma"]
+        xcode: ["15.3", "15.2"]
+    runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.macos }}-xcode:${{ matrix.xcode }}", "low-priority"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run benchmark
+        run: sh benchmark.sh
