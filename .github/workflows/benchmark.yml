@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["ghcr.io/cirruslabs/macos-sonoma-xcode:15.2", "ghcr.io/cirruslabs/macos-runner:sonoma"]
-    runs-on: ["${{ matrix.image }}", "low-priority"]
+        image: ["sonoma-xcode:15.2", "runner:sonoma", "sonoma-xcode:15.2-xl", "runner:sonoma-xl"]
+    runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
     steps:
       - uses: actions/checkout@v4
       - name: Xcode Select Version
@@ -22,9 +22,5 @@ jobs:
           xcode-select-version: 15.2
       - name: macOS version
         run: sw_vers
-      - name: disk write
-        run: time dd if=/dev/zero bs=1024k of=tstfile count=1024
-      - name: disk read
-        run: dd if=tstfile bs=1024k of=/dev/null count=1024
       - name: Run benchmark
         run: sh benchmark.sh
