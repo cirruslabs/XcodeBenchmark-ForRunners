@@ -22,5 +22,7 @@ jobs:
           xcode-select-version: 15.2
       - name: macOS version
         run: sw_vers
+      - name: Uptime
+        run: uptime
       - name: Run benchmark
         run: sh benchmark.sh
