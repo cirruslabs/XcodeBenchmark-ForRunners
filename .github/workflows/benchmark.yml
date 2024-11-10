@@ -28,7 +28,10 @@ jobs:
         run: brew install xclogparser
       - name: Run benchmark
         run: sh benchmark.sh
+      - name: Sanitize image name
+        run: echo "SANITIZED_IMAGE=$(echo ${{ matrix.image }} | sed 's/:/-/g')" >> $GITHUB_ENV
       - name: Save report
         uses: actions/upload-artifact@v4
         with:
+          name: "${{ env.SANITIZED_IMAGE }}.report.json"
           path: report.json
