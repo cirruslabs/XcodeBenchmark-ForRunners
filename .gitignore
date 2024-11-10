@@ -1,6 +1,8 @@
 ## Build generated
 build/
 DerivedData/
+BenchmarkBundle.xcresult/
+report.json
 
 ## Settings
 *.pbxuser
