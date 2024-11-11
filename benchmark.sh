@@ -22,7 +22,7 @@ if [ -n "$PATH_TO_PROJECT" ]; then
 			   -resultBundlePath "$PATH_TO_RESULT_BUNDLE" \
 			   -showBuildTimingSummary build
 
-	./xclogparser-0.23.8 parse --project XcodeBenchmark --derived_data $PATH_TO_DERIVED --reporter chromeTracer > report.json
+	./xclogparser-0.23.8 parse --project XcodeBenchmark --derived_data $PATH_TO_DERIVED --reporter chromeTracer > $REPORT_NAME.json
 
 	echo "System Version:" "$(sw_vers -productVersion)"
 	xcodebuild -version | grep "Xcode"

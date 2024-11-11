@@ -28,12 +28,12 @@ jobs:
         run: uptime
       - name: Check xclogparser
         run: ./xclogparser-0.23.8 --help
+      - name: Generate Report Name
+        run: echo "REPORT_NAME=$(echo ${{ matrix.image }} | sed 's/:/-/g')" >> $GITHUB_ENV
       - name: Run benchmark
         run: sh benchmark.sh
-      - name: Sanitize image name
-        run: echo "SANITIZED_IMAGE=$(echo ${{ matrix.image }} | sed 's/:/-/g')" >> $GITHUB_ENV
       - name: Save report
         uses: actions/upload-artifact@v4
         with:
-          name: "${{ env.SANITIZED_IMAGE }}.report.json"
-          path: report.json
+          name: "${{ env.REPORT_NAME }}.json"
+          path: "${{ env.REPORT_NAME }}.json"
