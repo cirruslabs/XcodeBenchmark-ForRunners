@@ -2,9 +2,6 @@ name: Benchmark
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   macos:
@@ -20,6 +17,8 @@ jobs:
         uses: mobiledevops/xcode-select-version-action@v1
         with:
           xcode-select-version: 15.2
+      - name: Wait 30 minutes
+        run: sleep 1800
       - name: macOS version
         run: sw_vers
       - name: Xcodes list
