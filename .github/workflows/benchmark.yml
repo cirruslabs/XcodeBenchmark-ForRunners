@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["sonoma-xcode:15.2-xl", "runner:sonoma-xl"]
+        image: ["sonoma-xcode:15.2", "runner:sonoma"]
     runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
     steps:
       - uses: actions/checkout@v4
