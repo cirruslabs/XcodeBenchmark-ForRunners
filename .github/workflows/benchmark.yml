@@ -24,6 +24,8 @@ jobs:
         run: sw_vers
       - name: Xcodes list
         run: xcodes installed
+      - name: Wait
+        run: sleep 60
       - name: Uptime
         run: uptime
       - name: Check xclogparser
