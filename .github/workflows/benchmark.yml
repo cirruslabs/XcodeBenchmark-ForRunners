@@ -2,9 +2,6 @@ name: Benchmark
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   macos:
@@ -12,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["sonoma-xcode:15.2", "runner:sonoma"]
+        image: ["sonoma-xcode:15.2-xl", "runner:sonoma-xl"]
     runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +29,8 @@ jobs:
         run: echo "REPORT_NAME=$(echo ${{ matrix.image }} | sed 's/:/-/g')" >> $GITHUB_ENV
       - name: Run benchmark
         run: sh benchmark.sh
+      - name: Run ps
+        run: ps axco time,comm | sort -r -k1
       - name: Save report
         uses: actions/upload-artifact@v4
         with:
