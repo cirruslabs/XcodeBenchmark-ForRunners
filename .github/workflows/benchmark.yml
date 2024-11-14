@@ -28,7 +28,7 @@ jobs:
       - name: Generate Report Name
         run: echo "REPORT_NAME=$(echo ${{ matrix.image }} | sed 's/:/-/g')" >> $GITHUB_ENV
       - name: Run benchmark
-        run: sh benchmark.sh
+        run: time sh benchmark.sh
       - name: Run ps
         run: ps axco time,comm | sort -r -k1
       - name: Save report
