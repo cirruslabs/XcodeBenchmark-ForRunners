@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["sonoma-xcode:15.2", "runner:sonoma"]
+        image: ["sonoma-xcode:15.2-xl", "runner:sonoma-xl"]
     runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
     steps:
       - uses: actions/checkout@v4
@@ -24,8 +24,6 @@ jobs:
         run: sw_vers
       - name: Xcodes list
         run: xcodes installed
-      - name: Wait
-        run: sleep 60
       - name: Uptime
         run: uptime
       - name: Check xclogparser
