@@ -12,28 +12,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["sonoma-xcode:15.2-xl", "runner:sonoma-xl"]
+        image: ["runner:sonoma", "runner:sonoma-xl", "runner:sequoia", "runner:sequoia-xl"]
     runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
     steps:
       - uses: actions/checkout@v4
       - name: Xcode Select Version
         uses: mobiledevops/xcode-select-version-action@v1
         with:
-          xcode-select-version: 15.2
+          xcode-select-version: 16.1
       - name: macOS version
         run: sw_vers
       - name: Xcodes list
         run: xcodes installed
       - name: Uptime
         run: uptime
-      - name: Check xclogparser
-        run: ./xclogparser-0.23.8 --help
-      - name: Generate Report Name
-        run: echo "REPORT_NAME=$(echo ${{ matrix.image }} | sed 's/:/-/g')" >> $GITHUB_ENV
       - name: Run benchmark
         run: sh benchmark.sh
-      - name: Save report
-        uses: actions/upload-artifact@v4
-        with:
-          name: "${{ env.REPORT_NAME }}.json"
-          path: "${{ env.REPORT_NAME }}.json"
