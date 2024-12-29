@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: macOS version
         run: sw_vers
+      - name: CPU count
+        run: sysctl -n hw.logicalcpu_max
       - name: Uptime
         run: uptime
       - name: Run benchmark
