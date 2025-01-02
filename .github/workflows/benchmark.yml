@@ -12,14 +12,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: ["ghcr.io/cirruslabs/macos-runner:sonoma", "ghcr.io/cirruslabs/macos-runner:sequoia", "macos-latest"]
-    runs-on: "${{ matrix.runner }}"
+        image: ["sonoma-xcode:15.2", "sonoma-xcode:15.2-xl", "runner:sonoma", "runner:sonoma-xl"]
+    runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
     steps:
       - uses: actions/checkout@v4
+      - name: Xcode Select Version
+        uses: mobiledevops/xcode-select-version-action@v1
+        with:
+          xcode-select-version: 15.2
       - name: macOS version
         run: sw_vers
-      - name: CPU count
-        run: sysctl -n hw.logicalcpu_max
+      - name: Xcodes list
+        run: xcodes installed
       - name: Uptime
         run: uptime
       - name: Run benchmark
