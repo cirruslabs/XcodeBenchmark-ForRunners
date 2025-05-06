@@ -12,14 +12,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["sonoma-xcode:15.2", "sonoma-xcode:15.2-xl", "runner:sonoma", "runner:sonoma-xl"]
+        image: [ "runner:sequoia", "runner:sequoia-xl", "runner:sequoia-xxl"]
     runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
     steps:
       - uses: actions/checkout@v4
-      - name: Xcode Select Version
-        uses: mobiledevops/xcode-select-version-action@v1
-        with:
-          xcode-select-version: 15.2
       - name: macOS version
         run: sw_vers
       - name: Xcodes list
