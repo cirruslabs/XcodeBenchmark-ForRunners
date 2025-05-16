@@ -22,5 +22,7 @@ jobs:
         run: xcodes installed
       - name: Uptime
         run: uptime
+      - name: List
+        run: xcrun simctl list
       - name: Run benchmark
         run: sh benchmark.sh
