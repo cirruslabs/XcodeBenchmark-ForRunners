@@ -6,18 +6,17 @@ The project has already saved thousands of dollars for developers and companies 
 ## Sponsorship
 <img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/public-sponsor-default.png" width="16px" height="16px"> Visit the [GitHub Sponsor page](https://github.com/sponsors/devMEremenko) if you'd like to support the project. 🤗
 
-
-## Looking for...
-
-`Please remove this section when you submit a result.`
-|        Device        |           CPU           | RAM | SSD | Xcode |   macOS  | Time(sec) |
-|:--------------------:|:-----------------------:|:---:|:---:|:-----:|:--------:|:---------:|
-|        ---           |      M4 Max 14-core     | --- | --- |  --   |    --    |    --     |
-
-
 ## Xcode 16
 
 If a device you are looking for is not listed below, check out open [issues](https://github.com/devMEremenko/XcodeBenchmark/issues) and [PRs](https://github.com/devMEremenko/XcodeBenchmark/pulls).
+
+|        Device        |           CPU           | RAM | SSD | Xcode |   macOS  | Time(sec) |
+|:--------------------:|:-----------------------:|:---:|:---:|:-----:|:--------:|:---------:|
+
+
+## Previous Xcode 16 results
+
+_XcodeBenchmark has been updated to support Xcode 16.3, and new submissions must not be compared with previous ones._
 
 |        Device        |           CPU           | RAM | SSD | Xcode |   macOS  | Time(sec) |
 |:--------------------:|:-----------------------:|:---:|:---:|:-----:|:--------:|:---------:|
@@ -29,6 +28,7 @@ If a device you are looking for is not listed below, check out open [issues](htt
 | MacBook Pro 16" 2024 |      M4 Max 16-core     | 128 | 4TB | 16.1  |   15.1   |    81     |
 | Mac Pro 2023         |      M2 Ultra 24-core   | 192 | 8TB | 16.1  |   15.1   |    87     |
 | MacBook Pro 16" 2023 |      M3 Max 16-core     | 128 | 1TB | 16.1  |   15.1   |    90     |
+| MacBook Pro 16" 2024 |      M4 Max 14-core     | 36  | 1TB | 16.1  |   15.1.1 |    92     |
 | MacBook Pro 16" 2024 |      M4 Pro 14-core     | 48  | 1TB | 16.2  |   15.2   |    92     |
 | MacBook Pro 14" 2024 |      M4 Pro 14-core     | 24  | 1TB | 16.1  | 	 15.1   |    95     |
 | Mac Mini 2024        |      M4 Pro 14-core     | 24  | 512 | 16.1  |   15.1   |    96     |
@@ -54,6 +54,7 @@ If a device you are looking for is not listed below, check out open [issues](htt
 | MacBook Air 13" 2022 |      M2 8-core          | 16  | 512 | 16.1  |   15.1   |    202    |
 | MacBook Air 13" 2020 |      M1 8c (7c GPU)     |  8  | 256 | 16.2  |   15.3.2 |    242    |
 | MacBook Pro 13" 2020 |      M1 8c (8c GPU)     | 16  | 256 | 16.1  |   15.1   |    258    |
+| iMac19,2 21.5" 2019  |      i7 3.2 GHz         | 16  | 512 | 16.2  |   14.7.5 |    349    |
 | Mac Mini 2018        |      i7 3.2 GHz         | 64  | 512 | 16.1  |   15.1   |    490    |
 
 ## Xcode 15
