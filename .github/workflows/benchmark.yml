@@ -22,6 +22,8 @@ jobs:
         run: xcodes installed
       - name: Uptime
         run: uptime
+      - name: Select Xcode 16.2
+        run: sudo xcodes select 16.2
       - name: List
         run: xcrun simctl list
       - name: Run benchmark
