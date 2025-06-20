@@ -12,19 +12,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: [ "runner:sequoia", "runner:sequoia-xl", "runner:sequoia-xxl"]
-    runs-on: ["ghcr.io/cirruslabs/macos-${{ matrix.image }}", "low-priority"]
+        image: [ "ghcr.io/cirruslabs/macos-runner:sequoia", "macos-latest"]
+    runs-on: ["${{ matrix.image }}"]
     steps:
       - uses: actions/checkout@v4
       - name: macOS version
         run: sw_vers
-      - name: Xcodes list
-        run: xcodes installed
-      - name: Uptime
-        run: uptime
-      - name: Select Xcode 16.2
-        run: sudo xcodes select 16.2
-      - name: List
-        run: xcrun simctl list
+      - name: Xcode Select Version
+        uses: mobiledevops/xcode-select-version-action@v1
+        with:
+          xcode-select-version: 16.4
       - name: Run benchmark
         run: sh benchmark.sh
