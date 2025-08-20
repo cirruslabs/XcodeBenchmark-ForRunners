@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: [ "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sequoia-xl", "macos-15-xlarge"]
+        image: [ "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sequoia-xl"]
     runs-on: ["${{ matrix.image }}"]
     steps:
       - uses: actions/checkout@v4

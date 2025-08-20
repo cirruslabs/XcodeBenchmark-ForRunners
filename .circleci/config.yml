@@ -8,6 +8,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: uptime
+          command: uptime
+      - run:
+          name: ip
+          command: curl ifconfig.me
+      - run:
+          name: system_profiler
+          command: system_profiler -detailLevel mini
+      - run:
           name: exec
           command: sh benchmark.sh
 
