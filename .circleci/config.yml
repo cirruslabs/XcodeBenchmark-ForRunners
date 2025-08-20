@@ -10,3 +10,9 @@ jobs:
       - run:
           name: exec
           command: sh benchmark.sh
+
+workflows:
+  version: 2
+  benchmark_workflow:
+    jobs:
+      - benchmark
