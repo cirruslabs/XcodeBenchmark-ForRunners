@@ -3,8 +3,8 @@ version: 2.1
 jobs:
   benchmark:
     macos:
-      xcode: 16.3.0
-    resource_class: m4pro.medium
+      xcode: "16.3.0"
+    resource_class: m2pro.medium
     steps:
       - checkout
       - run:
