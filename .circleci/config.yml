@@ -17,6 +17,9 @@ jobs:
           name: brew
           command: brew install fio
       - run:
+          name: finger
+          command: finger $USER
+      - run:
           name: exec
           command: sh test-local.sh
 

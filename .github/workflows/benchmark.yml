@@ -23,6 +23,6 @@ jobs:
         with:
           xcode-select-version: 16.3
       - name: Brew Install
-        run: brew install swift
+        run: brew install fio
       - name: Run benchmark
         run: sh test-local.sh
