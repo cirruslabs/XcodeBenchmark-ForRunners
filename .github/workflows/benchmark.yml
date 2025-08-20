@@ -22,5 +22,7 @@ jobs:
         uses: mobiledevops/xcode-select-version-action@v1
         with:
           xcode-select-version: 16.3
+      - name: Brew Install
+        run: brew install swift
       - name: Run benchmark
-        run: sh benchmark.sh
+        run: sh test-local.sh

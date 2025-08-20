@@ -14,11 +14,11 @@ jobs:
           name: ip
           command: curl ifconfig.me
       - run:
-          name: system_profiler
-          command: system_profiler -detailLevel mini
+          name: brew
+          command: brew install fio
       - run:
           name: exec
-          command: sh benchmark.sh
+          command: sh test-local.sh
 
 workflows:
   version: 2
