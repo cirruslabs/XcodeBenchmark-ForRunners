@@ -2,7 +2,9 @@
 
 set -e
 
-tart clone benchmark-seed benchmark
+export IMAGE=sequoia
+
+tart clone benchmark-seed $IMAGE
 
 # configure the VM
 tart set $IMAGE --disk-size 200
