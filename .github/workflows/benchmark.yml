@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         image: [ "ghcr.io/cirruslabs/macos-runner:sequoia-xl"]
-    runs-on: ["${{ matrix.image }}", "worker:aac5-1"]
+    runs-on: ["${{ matrix.image }}"]
     steps:
       - uses: actions/checkout@v4
       - name: macOS version
@@ -24,5 +24,7 @@ jobs:
           xcode-select-version: 16.3
       - name: Brew Install
         run: brew install fio
-      - name: Run benchmark
+      - name: Run benchmark cpu
+        run: sh benchmark.sh
+      - name: Run benchmark disk
         run: sh test-local.sh

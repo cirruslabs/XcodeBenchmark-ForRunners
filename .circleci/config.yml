@@ -20,7 +20,10 @@ jobs:
           name: finger
           command: finger $USER
       - run:
-          name: exec
+          name: bench build
+          command: sh benchmark.sh
+      - run:
+          name: bench disk
           command: sh test-local.sh
 
 workflows:
