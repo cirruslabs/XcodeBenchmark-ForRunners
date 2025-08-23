@@ -26,5 +26,5 @@ jobs:
         run: brew install fio
       - name: Run benchmark cpu
         run: sh benchmark.sh
-      - name: Run benchmark disk
+      - name: Run benchmark disk io
         run: sh test-local.sh
