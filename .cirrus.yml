@@ -1,0 +1,8 @@
+macos_instance:
+  image: ghcr.io/cirruslabs/macos-runner:sequoia
+
+task:
+  xcode_script: xcodes select 16.3
+  brew_script: brew install fio
+  benchmark_script: sh benchmark.sh
+  disk_script: sh test-local.sh
