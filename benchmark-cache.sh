@@ -1,0 +1,75 @@
+readonly PATH_TO_PROJECT=$(pwd)/XcodeBenchmark.xcworkspace
+readonly PATH_TO_DERIVED=$(pwd)/DerivedData
+readonly PATH_TO_RESULT_BUNDLE=$(pwd)/BenchmarkBundle.xcresult
+readonly COMPILATION_CACHE_REMOTE_SERVICE_PATH="${COMPILATION_CACHE_REMOTE_SERVICE_PATH:-$HOME/.cirruslabs/omni-cache.sock}"
+
+clear
+
+echo "Preparing environment"
+
+START_TIME=$(date +"%T")
+
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
+
+if [ -n "$PATH_TO_PROJECT" ]; then 
+
+	echo "Running XcodeBenchmark with omni-cache..."
+	echo "Please do not use your Mac while XcodeBenchmark is in progress\n\n"
+
+	export COMPILATION_CACHE_REMOTE_SERVICE_PATH
+
+	xcodebuild -workspace "$PATH_TO_PROJECT" \
+			   -scheme XcodeBenchmark \
+			   -destination generic/platform=iOS \
+			   -derivedDataPath "$PATH_TO_DERIVED" \
+			   -resultBundlePath "$PATH_TO_RESULT_BUNDLE" \
+			   -showBuildTimingSummary \
+			   COMPILATION_CACHE_ENABLE_CACHING=YES \
+			   COMPILATION_CACHE_ENABLE_PLUGIN=YES \
+			   COMPILATION_CACHE_ENABLE_DIAGNOSTIC_REMARKS=YES \
+			   COMPILATION_CACHE_REMOTE_SERVICE_PATH="$COMPILATION_CACHE_REMOTE_SERVICE_PATH" \
+			   build
+
+	./xclogparser-0.23.8 parse --project XcodeBenchmark --derived_data $PATH_TO_DERIVED --reporter chromeTracer > $REPORT_NAME.json
+
+	echo "System Version:" "$(sw_vers -productVersion)"
+	xcodebuild -version | grep "Xcode"
+
+	echo "Hardware Overview"
+	system_profiler SPHardwareDataType | grep "Model Name:"
+	system_profiler SPHardwareDataType | grep "Model Identifier:"
+
+	system_profiler SPHardwareDataType | grep "Processor Name:"
+	system_profiler SPHardwareDataType | grep "Processor Speed:"
+	system_profiler SPHardwareDataType | grep "Total Number of Cores:"
+
+	system_profiler SPHardwareDataType | grep "L2 Cache (per Core):"
+	system_profiler SPHardwareDataType | grep "L3 Cache:"
+
+	system_profiler SPHardwareDataType | grep "Number of Processors:"
+	system_profiler SPHardwareDataType | grep "Hyper-Threading Technology:"
+
+	system_profiler SPHardwareDataType | grep "Memory:"
+	system_profiler SPSerialATADataType | grep "Model:"
+
+	echo ""
+	echo "✅ XcodeBenchmark has completed"
+	echo "1️⃣  Take a screenshot of this window (Cmd + Shift + 4 + Space) and resize to include:"
+	echo "\t- Build Time (See ** BUILD SUCCEEDED ** [XYZ sec])"
+	echo "\t- System Version"
+	echo "\t- Xcode Version"
+	echo "\t- Hardware Overview"
+	
+	echo "\t- Started" "$START_TIME"
+	echo "\t- Ended  " "$(date +"%T")"
+	echo "\t- Date" `date`
+	echo ""
+	echo "2️⃣  Share your results at https://github.com/devMEremenko/XcodeBenchmark"
+
+	rm -rfd "$PATH_TO_DERIVED"
+	rm -rfd "$PATH_TO_RESULT_BUNDLE"
+	
+else
+    echo "XcodeBenchmark.xcworkspace was not found in the current folder"
+    echo "Are you running in the XcodeBenchmark folder?"
+fi

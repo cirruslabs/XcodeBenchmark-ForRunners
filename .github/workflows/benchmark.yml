@@ -8,23 +8,24 @@ on:
 
 jobs:
   macos:
-    name: "Run"
+    name: "Run (${{ matrix.image }}, cache=${{ matrix.cache }})"
     strategy:
       fail-fast: false
       matrix:
-        image: ["macos-latest-xlarge", "ghcr.io/cirruslabs/macos-runner:sequoia", "ghcr.io/cirruslabs/macos-runner:sequoia-plus", "ghcr.io/cirruslabs/macos-runner:sequoia-xl"]
+        image: ["ghcr.io/cirruslabs/macos-runner:tahoe"]
+        cache: [false, true]
     runs-on: ["${{ matrix.image }}"]
     steps:
       - uses: actions/checkout@v4
       - name: macOS version
         run: sw_vers
-      - name: Xcode Select Version
-        uses: mobiledevops/xcode-select-version-action@v1
-        with:
-          xcode-select-version: 16.3
       - name: Brew Install
         run: brew install fio
       - name: Run benchmark cpu
+        if: ${{ !matrix.cache }}
         run: sh benchmark.sh
+      - name: Run benchmark cpu with cache
+        if: ${{ matrix.cache }}
+        run: sh benchmark-cache.sh
       - name: Run benchmark disk io
         run: sh test-local.sh
