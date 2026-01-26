@@ -6,15 +6,20 @@ The project has already saved thousands of dollars for developers and companies 
 ## Sponsorship
 <img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/public-sponsor-default.png" width="16px" height="16px"> Visit the [GitHub Sponsor page](https://github.com/sponsors/devMEremenko) if you'd like to support the project. 🤗
 
-## Xcode 16
 
 If a device you are looking for is not listed below, check out open [issues](https://github.com/devMEremenko/XcodeBenchmark/issues) and [PRs](https://github.com/devMEremenko/XcodeBenchmark/pulls).
 
+## Xcode 26
+
 |        Device        |           CPU           | RAM | SSD | Xcode |   macOS  | Time(sec) |
 |:--------------------:|:-----------------------:|:---:|:---:|:-----:|:--------:|:---------:|
+| Macbook Pro 16" 2024 |      M4 Pro 14c         | 48  | 1TB | 26.1  |  15.7.1  |    104    |
+| Macbook Pro 16" 2024 |      M2 Pro 12c         | 16  | 1TB | 26.1  |  26.1    |    158    |
+| Mac Mini 2023        |      M2 Pro 10c         | 16  | 512 | 26.1  |  26.1    |    185    |
+| Macbook Air 13" 2024 |      M4 10c (10c GPU)   | 16  | 256 | 26.1  |  26.1    |    188    | 
 
 
-## Previous Xcode 16 results
+## Xcode 16 
 
 _XcodeBenchmark has been updated to support Xcode 16.3, and new submissions must not be compared with previous ones._
 
@@ -34,6 +39,7 @@ _XcodeBenchmark has been updated to support Xcode 16.3, and new submissions must
 | Mac Mini 2024        |      M4 Pro 14-core     | 24  | 512 | 16.1  |   15.1   |    96     |
 | Mac Mini 2024        |      M4 Pro 14-core     | 64  | 1TB | 16.1  |   15.1   |    96     |
 | MacBook Pro 14" 2024 |      M4 Pro 14-core     | 48  | 512 | 16.1  |   15.1   |    97     |
+| MacBook Pro 14" 2023 |      M3 Max 14-core     | 36  | 1TB | 16.2  |   15.3.2 |    100    |
 | Mac Mini 2024        |      M4 Pro 12-core     | 24  | 512 | 16.1  |   15.1   |    103    |
 | MacBook Pro 14" 2024 |	  M4 Pro 12-core	 | 48  | 512 | 16.1  | 	 15.1   |    106    |
 | Mac Studio 2022      |      M1 Ultra 20-core   | 64  | 2TB | 16.1  |   15.0.1 |    109    |
@@ -56,6 +62,7 @@ _XcodeBenchmark has been updated to support Xcode 16.3, and new submissions must
 | MacBook Pro 13" 2020 |      M1 8c (8c GPU)     | 16  | 256 | 16.1  |   15.1   |    258    |
 | iMac19,2 21.5" 2019  |      i7 3.2 GHz         | 16  | 512 | 16.2  |   14.7.5 |    349    |
 | Mac Mini 2018        |      i7 3.2 GHz         | 64  | 512 | 16.1  |   15.1   |    490    |
+| MacBook Pro 15" 2014 |      i7 2.8 GHz 4-core  | 16  | 1TB | 16.4  |   15.6   |    1003   |
 
 ## Xcode 15
 
@@ -66,6 +73,7 @@ _XcodeBenchmark has been updated to support Xcode 16.3, and new submissions must
 |        Device        |           CPU           | RAM | SSD | Xcode |  macOS | Time(sec) |
 |:--------------------:|:-----------------------:|:---:|:---:|:-----:|:------:|:---------:|
 | Mac Studio 2023      |     M2 Ultra 24-core    | 192 | 2TB | 15.0.1| 14.0   |     63    |
+| Mac Studio 2023      |     M2 Ultra 24-core    | 128 | 2TB |  15.4 |  14.5  |     65    |
 | MacBook Pro 16" 2023 | M3 Max 16 (High Power)  |  48 | 1TB | 15.3.1| 14.4.0 |     67    |
 | MacBook Pro 16" 2023 |     M3 Max 16-core      |  64 | 1TB | 15.0.1| 14.1.1 |     70    |
 | Mac Studio 2022      |     M1 Ultra 20-core    | 128 | 4TB |  15.3 | 14.4   |     73    |
@@ -86,6 +94,7 @@ _XcodeBenchmark has been updated to support Xcode 16.3, and new submissions must
 | MacBook Air 13" 2024 |     M3 8-core           |  24 | 2TB |  15.3 | 14.4   |    140    |
 | MacBook Air 13" 2022 |     M2 8c (10c GPU)     |  8  | 512 | 15.0.1| 14.1.1 |    158    |
 | MacBook Pro 14" 2021 |     M1 Pro 8-core       |  32 | 1TB |  15.2 | 14.1.2 |    170    |
+| MacBook Pro 14" 2021 |     M1 Pro 8-core       |  32 | 512 | 15.0.1| 14.1.1 |    175    |
 | Mac Mini M1 2020     |     M1 8-core           |  16 | 1TB |  15.2 | 13.6.3 |    180    |
 | MacBook Air 13" 2020 |     M1 8c (8c GPU)      |  16 | 512 |  15.0 | 14.0   |    208    |
 | iMac19,1 27" 2019    |     i9 3.6 GHz 8-core   |  24 | 512 |  15.2 | 13.7.1 |    265    |  
