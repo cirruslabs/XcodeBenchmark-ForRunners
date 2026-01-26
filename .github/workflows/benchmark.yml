@@ -19,13 +19,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: macOS version
         run: sw_vers
-      - name: Brew Install
-        run: brew install fio
       - name: Run benchmark cpu
         if: ${{ !matrix.cache }}
         run: sh benchmark.sh
       - name: Run benchmark cpu with cache
         if: ${{ matrix.cache }}
         run: sh benchmark-cache.sh
-      - name: Run benchmark disk io
-        run: sh test-local.sh
