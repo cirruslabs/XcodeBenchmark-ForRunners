@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image: ["ghcr.io/cirruslabs/macos-runner:tahoe"]
+        image: ["ghcr.io/cirruslabs/macos-runner:tahoe-xl"]
         cache: [false, true]
     runs-on: ["${{ matrix.image }}"]
     steps:
