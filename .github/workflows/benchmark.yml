@@ -26,4 +26,6 @@ jobs:
         if: ${{ matrix.cache }}
         run: sh benchmark-cache.sh
       - name: stats
-        run: curl http://localhost:12321/stats
+        run: "curl -s -H \"Accept: application/vnd.github-actions\" http://localhost:12321/stats"
+      - name: metrcis
+        run: "curl -s -H \"Accept: application/vnd.github-actions\" http://localhost:12321/metrics"
