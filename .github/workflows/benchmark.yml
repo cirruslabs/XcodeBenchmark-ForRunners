@@ -25,5 +25,3 @@ jobs:
       - name: Run benchmark cpu with cache
         if: ${{ matrix.cache }}
         run: sh benchmark-cache.sh
-      - name: stats
-        run: "curl -s -H \"Accept: application/vnd.github-actions\" http://localhost:12321/stats"
