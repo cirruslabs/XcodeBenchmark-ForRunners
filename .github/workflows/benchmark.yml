@@ -17,8 +17,8 @@ jobs:
     runs-on: ["${{ matrix.image }}"]
     steps:
       - uses: actions/checkout@v4
-      - name: macOS version
-        run: sw_vers
+      - name: uptime
+        run: uptime
       - name: Run benchmark cpu
         if: ${{ !matrix.cache }}
         run: sh benchmark.sh
